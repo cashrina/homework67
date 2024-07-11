@@ -3,12 +3,14 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 interface CounterState {
     value: string;
     color: string;
+    displayValue: string;
     isInputComplete: boolean;
 }
 
 const initialState: CounterState = {
     value: '',
     color: '',
+    displayValue: '',
     isInputComplete: false,
 }
 
@@ -21,6 +23,7 @@ export const counterSlice = createSlice({
         increase: (state, action: PayloadAction<number>) => {
             if (state.value.length < 4) {
                 state.value += action.payload;
+                state.displayValue += '*';
                 if (state.value.length === 4) {
                     state.isInputComplete = true;
                 }
@@ -28,6 +31,8 @@ export const counterSlice = createSlice({
         },
         decrease: (state) => {
             state.value = state.value.slice(0, -1);
+            state.displayValue = state.displayValue.slice(0, -1);
+            state.isInputComplete = false;
         },
 
         check: (state) => {
@@ -49,5 +54,3 @@ export const
         decrease,
         check
     } = counterSlice.actions;
-
-console.log(increase);
