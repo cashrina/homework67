@@ -19,6 +19,9 @@ export const counterSlice = createSlice({
         increase: (state,action: PayloadAction<number>) => {
             state.value += action.payload;
         },
+        decrease: (state) => {
+            state.value = state.value.slice(0, -1);
+        },
 
         check: (state) => {
             if(state.value === correctPassword) {
@@ -36,7 +39,7 @@ export const counterReducer = counterSlice.reducer;
 
 export const
     { increase,
-
+        decrease,
         check
     } = counterSlice.actions;
 
