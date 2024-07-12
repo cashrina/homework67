@@ -37,11 +37,11 @@ export const counterSlice = createSlice({
 
         check: (state) => {
             if(state.value === correctPassword) {
-                state.color = 'green'
-                return alert('correct');
+                state.color = 'text-success'
+                return alert('Access Granted');
             } else {
-                state.color = 'red'
-                return alert('wrong');
+                state.color = 'text-danger'
+                return alert('Access Denied');
             }
         }
     },

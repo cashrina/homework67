@@ -9,8 +9,8 @@ const Counter = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className="Counter">
-            <h1>{displayValue}</h1>
+        <div className="container mt-2">
+            <h1 className={color}>{displayValue}</h1>
             <button onClick={() => dispatch(increase(7))} disabled={isInputComplete}>7</button>
             <button onClick={() => dispatch(increase(8))} disabled={isInputComplete}>8</button>
             <button onClick={() => dispatch(increase(9))} disabled={isInputComplete}>9</button>
